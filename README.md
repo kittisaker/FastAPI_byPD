@@ -1,19 +1,56 @@
-# FastAPI_byPD
+# FastAPI_byPD : Chapter-1 Create app instance and run server
 
-## Select each branch to read the lesson.
+## Python dependency management
+```shell
+> poetry init
+Package name [fastapi_bypd]:
+Version [0.1.0]:
+Description []:
+Author [kittisaker <kittisak.hanheam@gmail.com>, n to skip]:
+License []:
+Compatible Python versions [^3.12]:
 
-* Chapter-1 : Create app instance and run server
-* Chapter-2 : Creating a simple route
-* Chapter-3 : Creating an APIRouter
-* Chapter-4 : Pydantic Models
-* Chapter-5 : Create a user list
-* Chapter-6 : Fetch all users
-* Chapter-7 : Create a user
-* Chapter-8 : Dependency Injection
-* Chapter-9 : Updating a user
-* Chapter-10 : Deleting a user
-* Chapter-11 : Fetching a single user
-* Chapter-12 : Filtering users with Query parameters
-* Chapter-13 : Data validation
+Would you like to define your main dependencies interactively? (yes/no) [yes] no
+Would you like to define your development dependencies interactively? (yes/no) [yes] no
+
+Do you confirm generation? (yes/no) [yes] yes
+```
+
+```shell
+> poetry add fastapi uvicorn email-validator
+```
+
+```shell
+$ poetry shell
+(fastapi-bypd-py3.12) D:\Projects_Python\FastAPI\Document_githubFastAPI\FastAPI_byPD>
+```
+
+## Create app instance
+Create : main.py
+```python
+from fastapi import FastAPI
+import uvicorn
+
+app = FastAPI()
+
+if __name__ == "__main__":
+    uvicorn.run(
+        "main:app",
+        host= "localhost",
+        port= 8080,
+        reload= True
+    )
+```
+
+## run server
+
+```python
+python main.py
+```
+
+Web Browser
+```json
+{"detail":"Not Found"}
+```
 
 ---
