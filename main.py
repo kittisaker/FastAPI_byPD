@@ -1,7 +1,10 @@
 from fastapi import FastAPI
 import uvicorn
+from api.views import api
 
 app = FastAPI()
+
+app.include_router(api)
 
 @app.get("/hello")
 def hello():
