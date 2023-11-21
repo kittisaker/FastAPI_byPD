@@ -7,7 +7,7 @@ class UserIn(BaseModel):
     email: EmailStr
     password: str
 
-class UserIn(BaseModel):
+class UserOut(BaseModel):
     id: int
     first_name: str
     last_name : str

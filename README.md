@@ -1,27 +1,20 @@
-# FastAPI_byPD : Chapter-4 Pydantic Models
+# FastAPI_byPD : Chapter-5 Create a user list
 
-Create a folder name "schemas", then add file name "user.py"
-
-user.py :
+## Create a user list
+views.py :
 ```python
-from pydantic import BaseModel, EmailStr
+from typing import List
+from fastapi import APIRouter
+from schemas.user import UserOut
 
+api = APIRouter(prefix= "/api")
 
-class UserIn(BaseModel):
-    first_name: str
-    last_name : str
-    email: EmailStr
-    password: str
-
-class UserIn(BaseModel):
-    id: int
-    first_name: str
-    last_name : str
-    email: EmailStr
-
-class UpdateUser(BaseModel):
-    first_name: str
-    last_name : str
+users: List[UserOut] = [
+    UserOut(id=1, first_name= "John", last_name= "Smith", email= "jsmith@gmail.com"),
+    UserOut(id=2, first_name= "Jane", last_name= "Doe", email= "jdoe@gmail.com"),
+    UserOut(id=3, first_name= "Jack", last_name= "Jones", email= "jjones@gmail.com"),
+    UserOut(id=4, first_name= "Sarah", last_name= "Smith", email= "ssmith@gmail.com"),
+]
 ```
 
 ---
