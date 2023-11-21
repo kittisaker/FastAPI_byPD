@@ -1,8 +1,3 @@
-# FastAPI_byPD : Chapter-5 Create a user list
-
-## Create a user list
-views.py :
-```python
 from typing import List
 from fastapi import APIRouter
 from schemas.user import UserOut
@@ -15,6 +10,3 @@ users: List[UserOut] = [
     UserOut(id=3, first_name= "Jack", last_name= "Jones", email= "jjones@gmail.com"),
     UserOut(id=4, first_name= "Sarah", last_name= "Smith", email= "ssmith@gmail.com"),
 ]
-```
-
----
