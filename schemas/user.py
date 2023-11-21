@@ -1,9 +1,3 @@
-# FastAPI_byPD : Chapter-4 Pydantic Models
-
-Create a folder name "schemas", then add file name "user.py"
-
-user.py :
-```python
 from pydantic import BaseModel, EmailStr
 
 
@@ -22,6 +16,3 @@ class UserIn(BaseModel):
 class UpdateUser(BaseModel):
     first_name: str
     last_name : str
-```
-
----
