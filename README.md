@@ -1,6 +1,6 @@
 # FastAPI_byPD : Chapter-3 Creating an APIRouter
 
-## APIRouter
+## Creating an APIRouter
 Create a folder name "api", then add file name "views.py"
 
 views.py :
@@ -31,31 +31,6 @@ if __name__ == "__main__":
         port= 8080,
         reload= True
     )
-```
-
-## Pydantic Models
-Create a folder name "schemas", then add file name "user.py"
-
-user.py :
-```python
-from pydantic import BaseModel, EmailStr
-
-
-class UserIn(BaseModel):
-    first_name: str
-    last_name : str
-    email: EmailStr
-    password: str
-
-class UserIn(BaseModel):
-    id: int
-    first_name: str
-    last_name : str
-    email: EmailStr
-
-class UpdateUser(BaseModel):
-    first_name: str
-    last_name : str
 ```
 
 ---
