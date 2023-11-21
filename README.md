@@ -1,19 +1,56 @@
-# FastAPI_byPD
+# FastAPI_byPD : Chapter-6 Fetch all users
 
-## Select each branch to read the lesson.
+## Fetch all users
+views.py :
+```python
+from typing import List
+from fastapi import APIRouter
+from schemas.user import UserOut
 
-* Chapter-1 : Create app instance and run server
-* Chapter-2 : Creating a simple route
-* Chapter-3 : Creating an APIRouter
-* Chapter-4 : Pydantic Models
-* Chapter-5 : Create a user list
-* Chapter-6 : Fetch all users
-* Chapter-7 : Create a user
-* Chapter-8 : Dependency Injection
-* Chapter-9 : Updating a user
-* Chapter-10 : Deleting a user
-* Chapter-11 : Fetching a single user
-* Chapter-12 : Filtering users with Query parameters
-* Chapter-13 : Data validation
+api = APIRouter(prefix= "/api")
+
+users: List[UserOut] = [
+    UserOut(id=1, first_name= "John", last_name= "Smith", email= "jsmith@gmail.com"),
+    UserOut(id=2, first_name= "Jane", last_name= "Doe", email= "jdoe@gmail.com"),
+    UserOut(id=3, first_name= "Jack", last_name= "Jones", email= "jjones@gmail.com"),
+    UserOut(id=4, first_name= "Sarah", last_name= "Smith", email= "ssmith@gmail.com"),
+]
+
+@api.get("/users")
+def get_users():
+    return users
+```
+
+docs : "http://localhost:8080/docs"
+try  : "http://localhost:8080/api/users"
+
+```json
+[
+  {
+    "id": 1,
+    "first_name": "John",
+    "last_name": "Smith",
+    "email": "jsmith@gmail.com"
+  },
+  {
+    "id": 2,
+    "first_name": "Jane",
+    "last_name": "Doe",
+    "email": "jdoe@gmail.com"
+  },
+  {
+    "id": 3,
+    "first_name": "Jack",
+    "last_name": "Jones",
+    "email": "jjones@gmail.com"
+  },
+  {
+    "id": 4,
+    "first_name": "Sarah",
+    "last_name": "Smith",
+    "email": "ssmith@gmail.com"
+  }
+]
+```
 
 ---
