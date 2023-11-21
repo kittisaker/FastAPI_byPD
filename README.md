@@ -1,19 +1,61 @@
-# FastAPI_byPD
+# FastAPI_byPD : Chapter-3 Creating an APIRouter
 
-## Select each branch to read the lesson.
+## APIRouter
+Create a folder name "api", then add file name "views.py"
 
-* Chapter-1 : Create app instance and run server
-* Chapter-2 : Creating a simple route
-* Chapter-3 : Creating an APIRouter
-* Chapter-4 : Pydantic Models
-* Chapter-5 : Create a user list
-* Chapter-6 : Fetch all users
-* Chapter-7 : Create a user
-* Chapter-8 : Dependency Injection
-* Chapter-9 : Updating a user
-* Chapter-10 : Deleting a user
-* Chapter-11 : Fetching a single user
-* Chapter-12 : Filtering users with Query parameters
-* Chapter-13 : Data validation
+views.py :
+```python
+from fastapi import APIRouter
+
+api = APIRouter(prefix= "/api")
+```
+
+main.py :
+```python
+from fastapi import FastAPI
+import uvicorn
+from api.views import api
+
+app = FastAPI()
+
+app.include_router(api)
+
+@app.get("/hello")
+def hello():
+    return {"hello": "world"}
+
+if __name__ == "__main__":
+    uvicorn.run(
+        "main:app",
+        host= "localhost",
+        port= 8080,
+        reload= True
+    )
+```
+
+## Pydantic Models
+Create a folder name "schemas", then add file name "user.py"
+
+user.py :
+```python
+from pydantic import BaseModel, EmailStr
+
+
+class UserIn(BaseModel):
+    first_name: str
+    last_name : str
+    email: EmailStr
+    password: str
+
+class UserIn(BaseModel):
+    id: int
+    first_name: str
+    last_name : str
+    email: EmailStr
+
+class UpdateUser(BaseModel):
+    first_name: str
+    last_name : str
+```
 
 ---
