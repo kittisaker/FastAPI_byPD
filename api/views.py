@@ -12,5 +12,5 @@ users: List[UserOut] = [
 ]
 
 @api.get("/users")
-def get_users():
+def get_users() -> List[UserOut]:
     return users
