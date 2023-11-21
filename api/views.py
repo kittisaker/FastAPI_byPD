@@ -10,3 +10,7 @@ users: List[UserOut] = [
     UserOut(id=3, first_name= "Jack", last_name= "Jones", email= "jjones@gmail.com"),
     UserOut(id=4, first_name= "Sarah", last_name= "Smith", email= "ssmith@gmail.com"),
 ]
+
+@api.get("/users")
+def get_users():
+    return users
