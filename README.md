@@ -53,4 +53,24 @@ try  : "http://localhost:8080/api/users"
 ]
 ```
 
+views.py :
+```python
+@api.get("/users")
+def get_users():
+    return users
+```
+
+try  : "http://localhost:8080/api/users"
+
+```json
+[
+  {
+    "id": 0,
+    "first_name": "string",
+    "last_name": "string",
+    "email": "user@example.com"
+  }
+]
+```
+
 ---
